@@ -1,0 +1,210 @@
+<!DOCTYPE html lang="en">
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html lang="en">
+    <title>Authentication</title>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <style>
+         @import url('https://fonts.googleapis.com/css?family=Raleway:400,700');
+
+* {
+box-sizing: border-box;
+margin: 0;
+padding: 0;	
+font-family: Raleway, sans-serif;
+}
+
+#heading2{
+text-align: center;
+padding: 50px;
+color: rgb(33, 2, 53);
+
+}
+
+body {
+background: linear-gradient(90deg, #d3d1ee, #8d81e2);		
+}
+
+.container {
+display: flex;
+align-items: center;
+justify-content: center;
+min-height: 100vh;
+}
+
+.screen {		
+background: linear-gradient(90deg, #5D54A4, #7C78B8);		
+position: relative;	
+height: 600px;
+width: 360px;	
+box-shadow: 0px 0px 24px #5C5696;
+}
+
+.screen__content {
+z-index: 1;
+position: relative;	
+height: 100%;
+}
+
+.screen__background {		
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+z-index: 0;
+-webkit-clip-path: inset(0 0 0 0);
+clip-path: inset(0 0 0 0);	
+}
+
+.screen__background__shape {
+transform: rotate(45deg);
+position: absolute;
+}
+
+.screen__background__shape1 {
+height: 520px;
+width: 520px;
+background: #FFF;	
+top: -50px;
+right: 120px;	
+border-radius: 0 72px 0 0;
+}
+
+.screen__background__shape2 {
+height: 220px;
+width: 220px;
+background: #6C63AC;	
+top: -172px;
+right: 0;	
+border-radius: 32px;
+}
+
+.screen__background__shape3 {
+height: 540px;
+width: 190px;
+background: linear-gradient(270deg, #5D54A4, #6A679E);
+top: -24px;
+right: 0;	
+border-radius: 32px;
+}
+
+.screen__background__shape4 {
+height: 400px;
+width: 200px;
+background: #7E7BB9;	
+top: 420px;
+right: 50px;	
+border-radius: 60px;
+}
+
+.login {
+width: 320px;
+padding: 30px;
+padding-top: 156px;
+}
+
+.login__submit {
+background: #fff;
+font-size: 14px;
+margin-top: 30px;
+padding: 16px 20px;
+border-radius: 26px;
+border: 1px solid #D4D3E8;
+text-transform: uppercase;
+font-weight: 700;
+display: flex;
+align-items: center;
+width: 100%;
+color: #4C489D;
+box-shadow: 0px 2px 2px #49447a;
+cursor: pointer;
+transition: .2s;
+}
+
+.login__submit:active,
+.login__submit:focus,
+.login__submit:hover {
+border-color: #6A679E;
+outline: none;
+}
+
+.login__icon {
+	position: absolute;
+	top: 30px;
+	color: #7875B5;
+}
+
+.login__input {
+	border: none;
+	border-bottom: 2px solid #D1D1D4;
+	background: none;
+	padding: 15px;
+	padding-left: 24px;
+	font-weight: 700;
+	width: 75%;
+	transition: .2s;
+}
+
+.login__input:active,
+.login__input:focus,
+.login__input:hover {
+	outline: none;
+	border-bottom-color: #6A679E;
+}
+
+    </style>
+    <div class="container">
+        <div class="screen">
+            <div class="screen__content" class="center">
+    <body>
+
+        {% for message in messages %}
+        <div class="alert alert-{{ message.tags }} alert-dissmissible fade show" role="alert">
+        <strong>Message:</strong> {{ message }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+        </button> 
+        </div>
+        {% endfor %}
+        
+        <h2 id="heading2">Sign In</h2>
+
+        <form action="/signin" method="post" class="login">
+        {% csrf_token %}
+        <div class="login__field">
+            <i class="login__icon fas fa-user"></i>
+            <input type="text" id="username" name="username" class="login__input" placeholder="Username" required>
+        </div>
+            <br>
+        <div class="login__field">
+             <i class="login__icon fas fa-lock"></i>
+             <input type="password" id="pass1" name="pass1" class="login__input" placeholder="Password" required>
+        </div>
+        <button type="submit" class="button login__submit">
+            <span class="button__text">Sign In</span>
+            <i class="button__icon fas fa-chevron-right"></i>
+        </button>
+        </form>
+        
+        <script src="" async defer></script>
+    </body>
+            </div>
+            <div class="screen__background">
+                <span class="screen__background__shape screen__background__shape4"></span>
+                <span class="screen__background__shape screen__background__shape3"></span>		
+                <span class="screen__background__shape screen__background__shape2"></span>
+                <span class="screen__background__shape screen__background__shape1"></span>
+            </div>
+        </div>
+    </div>
+</html>
